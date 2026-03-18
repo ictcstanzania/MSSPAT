@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSSPAT · ICT Local Content Survey · Dual email delivery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: #f0f5fa;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .survey-container {
+            max-width: 1100px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 20, 40, 0.3);
+            padding: 2rem 2rem 3rem;
+            border: 1px solid #d9e2ef;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0a2e4b;
+            border-left: 8px solid #c99f3c;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .purpose {
+            background: #e8f0fc;
+            padding: 1.3rem 2rem;
+            border-radius: 28px;
+            margin: 1.5rem 0 2rem;
+            font-size: 1rem;
+            color: #1a3f5c;
+            border: 1px solid #bed3f0;
+            line-height: 1.5;
+        }
+        
+        .email-badge {
+            background: #e3ebf6;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border: 1px dashed #2a6b9e;
+            color: #0a2e4b;
+        }
+        
+        .section {
+            margin-top: 3rem;
+            border-top: 3px solid #dde6f2;
+            padding-top: 2rem;
+        }
+        
+        .section h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0f3a58;
+            background: #e4edf9;
+            display: inline-block;
+            padding: 0.4rem 2.2rem;
+            border-radius: 60px;
+            margin-bottom: 2rem;
+            border-left: 6px solid #c99f3c;
+            letter-spacing: -0.01em;
+        }
+        
+        .question-group {
+            margin-bottom: 2.5rem;
+            background: #fafdff;
+            padding: 1.2rem 1.8rem 1.5rem;
+            border-radius: 24px;
+            border: 1px solid #d9e6f5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        
+        .q-label {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1e405e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .q-num {
+            background: #c99f3c;
+            color: white;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 16px;
+            letter-spacing: 0.3px;
+        }
+        
+        input, select, textarea {
+            border: 1.5px solid #d0ddee;
+            border-radius: 18px;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.95rem;
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            transition: all 0.15s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #1f6aaf;
+            box-shadow: 0 0 0 4px rgba(31, 106, 175, 0.15);
+            outline: none;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin: 0.7rem 0;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .scale-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2.5rem;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        
+        .scale-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+        
+        .scale-item input {
+            width: 55px;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 20px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .respondent-box {
+            background: #f0f8ff;
+            border-radius: 32px;
+            padding: 2rem 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid #c5daf2;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 0.8rem 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        
+        .submit-btn {
+            background: #0a2e4b;
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-top: 3rem;
+            box-shadow: 0 12px 24px -8px #0a2e4b;
+            transition: 0.2s;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #e0b550;
+            letter-spacing: 0.5px;
+        }
+        
+        .submit-btn:hover {
+            background: #1a4070;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 30px -8px #0a2e4b;
+        }
+        
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #4f6a84;
+            text-align: center;
+        }
+        
+        hr {
+            border: 1px dashed #b6cbe5;
+            margin: 2.5rem 0;
+        }
+        
+        .inline-input {
+            display: inline-block;
+            width: auto;
+            margin: 0 0.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="survey-container">
+    <h1>⛏️ ICT Mining Local Content Capacity Mapping</h1>
+    <div class="purpose">
+        <strong>Regulation 13A (GN 563/2025) – Reserved Categories</strong><br>
+        100% Tanzanian-owned ICT firms · Confidential MSSPAT survey<br>
+        Responses sent directly to: <strong>christinamgoji26@gmail.com</strong> & <strong>bensondavidi2014@gmail.com</strong>
+    </div>
+    
+    <div style="text-align: center;">
+        <span class="email-badge">📬 All answers delivered to both christinamgoji26 & bensondavidi2014</span>
+    </div>
+
+    <form action="https://formsubmit.co/dynatechsln@gmail.com" method="POST">
+        <!-- CRITICAL: deliver to primary + BCC to second address using formsubmit.co parameters -->
+        <input type="hidden" name="_replyto" value="dynatechsln@gmail.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="MSSPAT ICT Survey Response - Dual delivery">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thank you for completing the MSSPAT ICT survey. Your responses have been recorded and will be reviewed.">
+        <!-- BOTH EMAILS GET THE FULL RESPONSE: bcc field works with formsubmit.co -->
+        <input type="hidden" name="_cc" value="christinamgoji26@gmail.com,bensondavidi2014@gmail.com">
+        <!-- ensures both addresses receive exact copy (cc) – both will see each other, but requirement is both receive; can also use _bcc but cc is transparent -->
+        
+        <!-- optional: use _bcc to keep hidden, but requirement is both get emails, visibility fine -->
+        <!-- use _cc to explicitly copy both addresses -->
+
+        <!-- RESPONDENT INFORMATION -->
+        <div class="respondent-box">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.8rem; color: #0a2e4b;">👤 Respondent Information</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.3rem;">
+                <input type="text" name="full_name" placeholder="Full name (optional)">
+                <div style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
+                    <input type="text" name="job_title" placeholder="Job title / position" style="flex: 1;">
+                    <input type="email" name="email_address" placeholder="Email address (for confirmation)" style="flex: 1.5;" required>
+                </div>
+                <div style="display: flex; gap: 1.2rem; flex-wrap: wrap;">
+                    <input type="tel" name="phone_number" placeholder="Phone number (optional)" style="flex: 1;">
+                    <input type="text" name="company_name" placeholder="Company name" style="flex: 2;">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION A: COMPANY BACKGROUND -->
+        <div class="section">
+            <h2>🔹 Section A: Company Background & Ownership</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">A1</span> Is your ICT company 100% owned by Tanzanian citizens?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="A1_100_percent_owned" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="A1_100_percent_owned" value="No"> No (If No, disqualify)</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">A2</span> When was your company established/incorporated?</div>
+                <input type="text" name="A2_year_established" placeholder="Year (e.g., 2015)">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">A3</span> Total number of employees?</div>
+                <input type="text" name="A3_total_employees" placeholder="Number">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">A4</span> Staff breakdown (% - add to 100%)</div>
+                <div class="grid-2">
+                    <input type="text" name="A4_technical_percent" placeholder="Technical/Engineering (TZ) %">
+                    <input type="text" name="A4_managerial_percent" placeholder="Managerial/Senior %">
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">A5</span> Does your company hold relevant registrations/licenses?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="A5_has_licenses" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="A5_has_licenses" value="No"> No</label>
+                </div>
+                <input type="text" name="A5_license_types" placeholder="Specify types (e.g., TCRA, TIN, business license)" style="margin-top: 1rem;">
+            </div>
+        </div>
+
+        <!-- SECTION B: AWARENESS AND COMPLIANCE -->
+        <div class="section">
+            <h2>🔹 Section B: Awareness and Compliance with Mining Local Content Regulations</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">B1</span> Aware of Mining (Local Content) Regulations, 2018, and 2025 amendment (GN 563/2025) with Regulation 13A?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="B1_aware_regs" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="B1_aware_regs" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="B1_aware_regs" value="Partially"> Partially</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">B2</span> Has your company checked Mining Commission publications for Regulation 13A reserved lists?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="B2_checked_lists" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="B2_checked_lists" value="No"> No</label>
+                </div>
+                <div style="margin: 1rem 0 0.5rem;">If Yes, does it include ICT-related items?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="B2_includes_ict" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="B2_includes_ict" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="B2_includes_ict" value="Unsure"> Unsure</label>
+                </div>
+                <input type="text" name="B2_specify_categories" placeholder="Specify categories" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">B3</span> To what extent does Regulation 13A enhance opportunities for 100% local ICT firms in mining? (0.1 = No enhancement to 0.5 = Significant enhancement)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="B3_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="B3_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="B3_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="B3_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="B3_05" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">B4</span> Has your company provided/attempted ICT accessories/services to mining?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="B4_provided_mining" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="B4_provided_mining" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="B4_provided_mining" value="Partially"> Partially</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION C: CAPACITY - ICT ACCESSORIES/HARDWARE -->
+        <div class="section">
+            <h2>🔹 Section C: Capacity - ICT Accessories and Hardware</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">C1</span> Does your company supply mining-suitable ICT hardware (e.g., rugged devices, servers, IoT sensors, drones)?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="C1_supply_hardware" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="C1_supply_hardware" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="C1_supply_hardware" value="Partially"> Partially</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">C2</span> Rate capacity to supply these accessories (1 = Very Low to 5 = Very High)</div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">a. Rugged/dust-proof hardware</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="C2a_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="C2a_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="C2a_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="C2a_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="C2a_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">b. Networking/connectivity equipment</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="C2b_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="C2b_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="C2b_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="C2b_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="C2b_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">c. IoT/sensors for monitoring</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="C2c_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="C2c_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="C2c_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="C2c_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="C2c_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 0.5rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">d. High-capacity storage/servers</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="C2d_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="C2d_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="C2d_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="C2d_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="C2d_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">C3</span> Can you source/supply independently without foreign dependency (beyond imports)?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="C3_independent" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="C3_independent" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="C3_independent" value="Partially"> Partially</label>
+                </div>
+                <input type="text" name="C3_local_capabilities" placeholder="If Yes, describe local capabilities" style="margin-top: 1rem;">
+            </div>
+        </div>
+
+        <!-- SECTION D: CAPACITY - ICT SERVICES -->
+        <div class="section">
+            <h2>🔹 Section D: Capacity - ICT Services</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">D1</span> Does your company offer specialized mining ICT services (e.g., software, cybersecurity, data analytics, cloud monitoring)?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="D1_specialized_services" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="D1_specialized_services" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="D1_specialized_services" value="Partially"> Partially</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">D2</span> Rate expertise/capacity in these services (1 = Very Low to 5 = Very High)</div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">a. Software/ERP for mining</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="D2a_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="D2a_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="D2a_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="D2a_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="D2a_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">b. Cybersecurity for OT/IT</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="D2b_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="D2b_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="D2b_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="D2b_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="D2b_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">c. Digital transformation/IoT</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="D2c_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="D2c_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="D2c_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="D2c_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="D2c_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">d. Telecom in remote areas</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="D2d_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="D2d_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="D2d_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="D2d_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="D2d_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 0.5rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">e. Data management/analytics</div>
+                    <div class="scale-row">
+                        <span class="scale-item">1 <input type="text" name="D2e_1" style="width: 50px;"></span>
+                        <span class="scale-item">2 <input type="text" name="D2e_2" style="width: 50px;"></span>
+                        <span class="scale-item">3 <input type="text" name="D2e_3" style="width: 50px;"></span>
+                        <span class="scale-item">4 <input type="text" name="D2e_4" style="width: 50px;"></span>
+                        <span class="scale-item">5 <input type="text" name="D2e_5" style="width: 50px;"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">D3</span> Partnerships/access to ecosystems for mining solutions without foreign intermediaries?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="D3_partnerships_local" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="D3_partnerships_local" value="No"> No</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION E: OPERATIONAL AND TECHNICAL CAPABILITIES -->
+        <div class="section">
+            <h2>🔹 Section E: Operational and Technical Capabilities</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">E1</span> Average annual revenue/turnover last 3 years?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="E1_revenue" value="<500M TZS"> &lt;500M TZS</label>
+                    <label class="radio-option"><input type="radio" name="E1_revenue" value="500M-2B"> 500M-2B</label>
+                    <label class="radio-option"><input type="radio" name="E1_revenue" value="2B-5B"> 2B-5B</label>
+                    <label class="radio-option"><input type="radio" name="E1_revenue" value=">5B"> &gt;5B</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">E2</span> Access/relationships with Tanzanian suppliers/partners for mining ICT?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="E2_local_relationships" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="E2_local_relationships" value="No"> No</label>
+                </div>
+                <input type="text" name="E2_key_partners" placeholder="List key ones (optional)" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">E3</span> Rate technological infrastructure (tools, labs, data centers)</div>
+                <div class="scale-row">
+                    <span class="scale-item">1 = Very Limited <input type="text" name="E3_1" style="width: 55px;"></span>
+                    <span class="scale-item">2 <input type="text" name="E3_2" style="width: 55px;"></span>
+                    <span class="scale-item">3 <input type="text" name="E3_3" style="width: 55px;"></span>
+                    <span class="scale-item">4 <input type="text" name="E3_4" style="width: 55px;"></span>
+                    <span class="scale-item">5 = Advanced <input type="text" name="E3_5" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">E4</span> Conduct site assessments/pilots for mining ICT?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="E4_site_assessments" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="E4_site_assessments" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="E4_site_assessments" value="Sometimes"> Sometimes</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">E5</span> Staff with mining-related ICT experience/qualifications?</div>
+                <input type="text" name="E5_staff_number" placeholder="Number">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">E6</span> Provide training on mining ICT and local content compliance?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="E6_training" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="E6_training" value="No"> No</label>
+                </div>
+                <input type="text" name="E6_training_frequency" placeholder="Frequency" style="margin-top: 1rem;">
+            </div>
+        </div>
+
+        <!-- SECTION F: INDEPENDENCE FROM FOREIGN COMPANIES -->
+        <div class="section">
+            <h2>🔹 Section F: Independence from Foreign Companies/Interference</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">F1</span> Dependence on foreign ICT firms for mining solutions (licensing, support, subcontracting)?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="F1_dependence_foreign" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="F1_dependence_foreign" value="No"> No</label>
+                </div>
+                <input type="text" name="F1_dependence_description" placeholder="If Yes, describe" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">F2</span> Extent of independent delivery (no foreign interference)? (0.1 = Highly dependent to 0.5 = Fully independent)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="F2_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="F2_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="F2_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="F2_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="F2_05" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">F3</span> Barriers to full independence? (Tick all)</div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="F3_barrier_tech" value="Lack of tech"> Lack of tech</label>
+                    <label class="checkbox-item"><input type="checkbox" name="F3_barrier_capital" value="Capital"> Capital</label>
+                    <label class="checkbox-item"><input type="checkbox" name="F3_barrier_mining_exp" value="Mining experience"> Mining experience</label>
+                    <label class="checkbox-item"><input type="checkbox" name="F3_barrier_regulatory" value="Regulatory"> Regulatory</label>
+                    <label class="checkbox-item"><input type="checkbox" name="F3_barrier_supply_chain" value="Supply chain"> Supply chain</label>
+                    <label class="checkbox-item"><input type="checkbox" name="F3_barrier_other" value="Other"> Other:</label>
+                </div>
+                <input type="text" name="F3_other_text" placeholder="If Other, specify" style="margin-top: 1rem;">
+            </div>
+        </div>
+
+        <!-- SECTION G: FINANCIAL AND MARKET PENETRATION -->
+        <div class="section">
+            <h2>🔹 Section G: Financial and Market Penetration</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">G1</span> % of portfolio from mining sector?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="G1_percent_mining" value="0%"> 0%</label>
+                    <label class="radio-option"><input type="radio" name="G1_percent_mining" value="1-10%"> 1-10%</label>
+                    <label class="radio-option"><input type="radio" name="G1_percent_mining" value="11-30%"> 11-30%</label>
+                    <label class="radio-option"><input type="radio" name="G1_percent_mining" value=">30%"> >30%</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">G2</span> Mining companies approached your firm last 3 years? Number/range:</div>
+                <input type="text" name="G2_approaches" placeholder="e.g., 3-5 companies">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">G3</span> Strategies to secure mining clients under Regulation 13A? (Tick all + open)</div>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="G3_strategy_tenders" value="Direct tenders"> Direct tenders</label>
+                    <label class="checkbox-item"><input type="checkbox" name="G3_strategy_commission" value="Mining Commission engagement"> Mining Commission engagement</label>
+                    <label class="checkbox-item"><input type="checkbox" name="G3_strategy_partnerships" value="Local partnerships"> Local partnerships</label>
+                    <label class="checkbox-item"><input type="checkbox" name="G3_strategy_other" value="Other"> Other:</label>
+                </div>
+                <input type="text" name="G3_other_text" placeholder="Please specify" style="margin-top: 1rem;">
+            </div>
+        </div>
+
+        <!-- SECTION I: CHALLENGES, OPPORTUNITIES, RECOMMENDATIONS -->
+        <div class="section">
+            <h2>🔹 Section I: Challenges, Opportunities, and Recommendations</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">I1</span> Main challenges in competing/delivering ICT to mining? [Open/ranked]</div>
+                <textarea name="I1_challenges" rows="3" placeholder="Please list or rank main challenges"></textarea>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">I2</span> Regulation 13A impact on prospects?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="I2_impact" value="Positive"> Positive</label>
+                    <label class="radio-option"><input type="radio" name="I2_impact" value="Neutral"> Neutral</label>
+                    <label class="radio-option"><input type="radio" name="I2_impact" value="Negative"> Negative</label>
+                </div>
+                <input type="text" name="I2_explanation" placeholder="Explanation" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">I3</span> Priority capacity building areas (rank top 3)? [e.g., Training, R&D funding, Tenders access]</div>
+                <input type="text" name="I3_priority_areas" placeholder="e.g., 1. Training, 2. R&D funding, 3. Tenders access">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">I4</span> Open to consortia with other local ICT firms for large projects?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="I4_consortia" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="I4_consortia" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="I4_consortia" value="Maybe"> Maybe</label>
+                </div>
+                <input type="text" name="I4_reasons" placeholder="Reasons" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">I5</span> Government support suggestions (Mining Commission, TCRA)? [Open]</div>
+                <textarea name="I5_gov_suggestions" rows="3" placeholder="Your suggestions"></textarea>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">I6</span> Additional comments on readiness for exclusive mining ICT without foreign dependence? [Open]</div>
+                <textarea name="I6_additional_comments" rows="3" placeholder="Additional comments"></textarea>
+            </div>
+        </div>
+
+        <!-- SECTION J: REGULATORY IMPACT AND RESERVED LIST PREPAREDNESS -->
+        <div class="section">
+            <h2>🔹 Section J: Regulatory Impact and Reserved List Preparedness</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">J1</span> Reviewed reserved lists since late 2025/early 2026 for ICT-relevant items?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="J1_reviewed_lists" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="J1_reviewed_lists" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="J1_reviewed_lists" value="Unsure"> Unsure</label>
+                </div>
+                <input type="text" name="J1_specific_items" placeholder="If Yes, specific items" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">J2</span> Extent reserved lists created exclusive opportunities? (0.1 = No new to 0.5 = Major exclusive access)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="J2_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="J2_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="J2_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="J2_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="J2_05" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">J3</span> Updated compliance docs for reserved ICT categories?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="J3_updated_docs" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="J3_updated_docs" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="J3_updated_docs" value="In progress"> In progress</label>
+                </div>
+                <input type="text" name="J3_key_steps" placeholder="Key steps" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">J4</span> Expect further expansions to reserved list in 2026+ for ICT?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="J4_expect_expansion" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="J4_expect_expansion" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="J4_expect_expansion" value="Unsure"> Unsure</label>
+                </div>
+                <input type="text" name="J4_explanation" placeholder="Explanation" style="margin-top: 1rem;">
+            </div>
+        </div>
+
+        <!-- SECTION K: SUPPLY CHAIN LOCALIZATION AND INDEPENDENCE -->
+        <div class="section">
+            <h2>🔹 Section K: Supply Chain Localization and Independence</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K1</span> % ICT accessories sourced/assembled locally?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="K1_percent_local" value="0-20%"> 0-20%</label>
+                    <label class="radio-option"><input type="radio" name="K1_percent_local" value="21-50%"> 21-50%</label>
+                    <label class="radio-option"><input type="radio" name="K1_percent_local" value="51-80%"> 51-80%</label>
+                    <label class="radio-option"><input type="radio" name="K1_percent_local" value=">80%"> >80%</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K2</span> Reliance on foreign vs. local solutions for services? (0.1 = Heavily foreign to 0.5 = Fully localized)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="K2_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="K2_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="K2_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="K2_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="K2_05" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K3</span> Strategies to reduce foreign dependency?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="K3_strategies" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="K3_strategies" value="No"> No</label>
+                </div>
+                <input type="text" name="K3_strategies_description" placeholder="Describe" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K4</span> Ability for end-to-end independent solutions? (0.1 = Not possible to 0.5 = Fully capable)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="K4_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="K4_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="K4_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="K4_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="K4_05" style="width: 55px;"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION L: INNOVATION AND MINING-SPECIFIC ADAPTATION -->
+        <div class="section">
+            <h2>🔹 Section L: Innovation and Mining-Specific Adaptation</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L1</span> Offer/develop solutions for mining challenges (e.g., remote connectivity, AI maintenance)?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="L1_offer_solutions" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="L1_offer_solutions" value="No"> No</label>
+                </div>
+                <input type="text" name="L1_examples" placeholder="List 2-3 examples" style="margin-top: 1rem;">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L2</span> Innovation capacity for mining ICT? (0.1 = Minimal to 0.5 = Leading)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="L2_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="L2_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="L2_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="L2_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="L2_05" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L3</span> Proof-of-concept/pilot projects in mining sites last 3 years?</div>
+                <input type="text" name="L3_pilot_number" placeholder="Number/range" style="margin-bottom: 0.8rem;">
+                <div>Successful to contracts?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="L3_successful" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="L3_successful" value="No"> No</label>
+                    <label class="radio-option"><input type="radio" name="L3_successful" value="Some"> Some</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION L (second): MARKET ACCESS, PROCUREMENT, AND COMPETITION -->
+        <div class="section">
+            <h2>🔹 Section L: Market Access, Procurement, and Competition</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L4</span> Participated/bid on indigenous-designated mining tenders since 2025 amendments?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="L4_participated_tenders" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="L4_participated_tenders" value="No"> No</label>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L5</span> Extent Regulation 13A reduced foreign competition in ICT procurement? (0.1 = No change to 0.5 = Significant reduction)</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 <input type="text" name="L5_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="L5_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="L5_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="L5_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 <input type="text" name="L5_05" style="width: 55px;"></span>
+                </div>
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L6</span> Main strategies for accessing clients under new framework? [Multiple choice + open]</div>
+                <input type="text" name="L6_strategies" placeholder="Please describe">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">L7</span> Increase in mining inquiries/RFPs past year due to local content?</div>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="Yes (significant)"> Yes (significant)</label>
+                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="Yes (slight)"> Yes (slight)</label>
+                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="No change"> No change</label>
+                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="Decrease"> Decrease</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION K (Enhanced): Enhanced Challenges, Capacity Gaps, and Support Needs -->
+        <div class="section">
+            <h2>🔹 Section K (Enhanced): Challenges, Capacity Gaps, and Support Needs</h2>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K5</span> Rank top 3 barriers to scaling under Regulation 13A (1 = highest):</div>
+                <p style="color: #1e405e; margin-bottom: 0.8rem;">Mining knowledge | Capital | Tech/R&D access | Foreign competition | Compliance | Supply chain | Talent | Other</p>
+                <input type="text" name="K5_ranking" placeholder="Your ranking (e.g., 1. Capital, 2. Talent, 3. Mining knowledge)">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K6</span> Most accelerating government/institutional support? (Rank top 3) [e.g., R&D subsidies, tender priority]</div>
+                <input type="text" name="K6_support_ranking" placeholder="e.g., 1. Tender priority, 2. R&D subsidies, 3. Training">
+            </div>
+            
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K7</span> Overall confidence 100% local ICT can meet 70%+ mining needs independently in 3-5 years?</div>
+                <div class="scale-row">
+                    <span class="scale-item">0.1 = Very low <input type="text" name="K7_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.2 <input type="text" name="K7_02" style="width: 55px;"></span>
+                    <span class="scale-item">0.3 <input type="text" name="K7_03" style="width: 55px;"></span>
+                    <span class="scale-item">0.4 <input type="text" name="K7_04" style="width: 55px;"></span>
+                    <span class="scale-item">0.5 = Very high <input type="text" name="K7_05" style="width: 55px;"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <div style="display: flex; justify-content: center;">
+            <button type="submit" class="submit-btn">✓ SUBMIT SURVEY</button>
+        </div>
+        <div style="margin-top: 1.5rem; text-align: center; color: #2a4b6e;">
+            You will receive a copy via email if you provided your address.<br>
+            <strong>Responses also go to christinamgoji26@gmail.com & bensondavidi2014@gmail.com</strong>
+        </div>
+    </form>
+    
+    <hr>
+    <div class="footer-note">
+        MSSPAT · All Regulation 13A ICT questions included · Dual delivery enabled
+    </div>
+</div>
+</body>
+</html>
