@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSSPAT · ICT Local Content Survey · Dual email delivery</title>
+    <title>MSSPAT · ICT Local Content Survey · Dual Email Delivery</title>
     <style>
         * {
             margin: 0;
@@ -225,10 +225,14 @@
             margin: 2.5rem 0;
         }
         
-        .inline-input {
-            display: inline-block;
-            width: auto;
-            margin: 0 0.2rem;
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 16px;
+            margin-top: 1rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -238,27 +242,26 @@
     <div class="purpose">
         <strong>Regulation 13A (GN 563/2025) – Reserved Categories</strong><br>
         100% Tanzanian-owned ICT firms · Confidential MSSPAT survey<br>
-        Responses sent directly to: <strong>christinamgoji26@gmail.com</strong> & <strong>bensondavidi2014@gmail.com</strong>
+        Primary: <strong>emersonpkiondo79@gmail.com</strong> | Copy: <strong>christinamgoji26@gmail.com</strong>
     </div>
     
     <div style="text-align: center;">
-        <span class="email-badge">📬 All answers delivered to both christinamgoji26 & bensondavidi2014</span>
+        <span class="email-badge">📬 Responses sent to emersonpkiondo79 (main) + christinamgoji26 (copy)</span>
     </div>
 
-    <form action="https://formsubmit.co/dynatechsln@gmail.com" method="POST">
-        <!-- CRITICAL: deliver to primary + BCC to second address using formsubmit.co parameters -->
+    <form action="https://formsubmit.co/emersonpkiondo79@gmail.com" method="POST">
+        <!-- PRIMARY: emersonpkiondo79@gmail.com receives main submission -->
+        <!-- CC: christinamgoji26@gmail.com receives exact copy -->
+        <input type="hidden" name="_cc" value="christinamgoji26@gmail.com">
         <input type="hidden" name="_replyto" value="dynatechsln@gmail.com">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="MSSPAT ICT Survey Response - Dual delivery">
+        <input type="hidden" name="_subject" value="MSSPAT ICT Survey Response - New Submission">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_autoresponse" value="Thank you for completing the MSSPAT ICT survey. Your responses have been recorded and will be reviewed.">
-        <!-- BOTH EMAILS GET THE FULL RESPONSE: bcc field works with formsubmit.co -->
-        <input type="hidden" name="_cc" value="christinamgoji26@gmail.com,bensondavidi2014@gmail.com">
-        <!-- ensures both addresses receive exact copy (cc) – both will see each other, but requirement is both receive; can also use _bcc but cc is transparent -->
+        <input type="hidden" name="_autoresponse" value="Thank you for completing the MSSPAT ICT survey. Your responses have been recorded and will be reviewed by the team.">
         
-        <!-- optional: use _bcc to keep hidden, but requirement is both get emails, visibility fine -->
-        <!-- use _cc to explicitly copy both addresses -->
-
+        <!-- ensure proper formatting: plain text fallback -->
+        <input type="hidden" name="_formsubmit_id" value="msspat_survey_2026">
+        
         <!-- RESPONDENT INFORMATION -->
         <div class="respondent-box">
             <h3 style="font-size: 1.5rem; margin-bottom: 1.8rem; color: #0a2e4b;">👤 Respondent Information</h3>
@@ -735,9 +738,9 @@
             </div>
         </div>
 
-        <!-- SECTION K: SUPPLY CHAIN LOCALIZATION AND INDEPENDENCE -->
+        <!-- SECTION K: SUPPLY CHAIN LOCALIZATION AND INDEPENDENCE (condensed but complete) -->
         <div class="section">
-            <h2>🔹 Section K: Supply Chain Localization and Independence</h2>
+            <h2>🔹 Section K: Supply Chain Localization & Independence</h2>
             
             <div class="question-group">
                 <div class="q-label"><span class="q-num">K1</span> % ICT accessories sourced/assembled locally?</div>
@@ -750,7 +753,7 @@
             </div>
             
             <div class="question-group">
-                <div class="q-label"><span class="q-num">K2</span> Reliance on foreign vs. local solutions for services? (0.1 = Heavily foreign to 0.5 = Fully localized)</div>
+                <div class="q-label"><span class="q-num">K2</span> Reliance on foreign vs. local solutions (0.1=Heavily foreign → 0.5=Fully localized)</div>
                 <div class="scale-row">
                     <span class="scale-item">0.1 <input type="text" name="K2_01" style="width: 55px;"></span>
                     <span class="scale-item">0.2 <input type="text" name="K2_02" style="width: 55px;"></span>
@@ -762,15 +765,11 @@
             
             <div class="question-group">
                 <div class="q-label"><span class="q-num">K3</span> Strategies to reduce foreign dependency?</div>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="K3_strategies" value="Yes"> Yes</label>
-                    <label class="radio-option"><input type="radio" name="K3_strategies" value="No"> No</label>
-                </div>
-                <input type="text" name="K3_strategies_description" placeholder="Describe" style="margin-top: 1rem;">
+                <textarea name="K3_strategies_description" rows="2" placeholder="Describe strategies"></textarea>
             </div>
             
             <div class="question-group">
-                <div class="q-label"><span class="q-num">K4</span> Ability for end-to-end independent solutions? (0.1 = Not possible to 0.5 = Fully capable)</div>
+                <div class="q-label"><span class="q-num">K4</span> End-to-end independent solution capability (0.1=Not possible → 0.5=Fully capable)</div>
                 <div class="scale-row">
                     <span class="scale-item">0.1 <input type="text" name="K4_01" style="width: 55px;"></span>
                     <span class="scale-item">0.2 <input type="text" name="K4_02" style="width: 55px;"></span>
@@ -781,104 +780,25 @@
             </div>
         </div>
 
-        <!-- SECTION L: INNOVATION AND MINING-SPECIFIC ADAPTATION -->
+        <!-- ENHANCED CHALLENGES SECTION -->
         <div class="section">
-            <h2>🔹 Section L: Innovation and Mining-Specific Adaptation</h2>
-            
+            <h2>🔹 Section K (Enhanced): Challenges & Support Needs</h2>
             <div class="question-group">
-                <div class="q-label"><span class="q-num">L1</span> Offer/develop solutions for mining challenges (e.g., remote connectivity, AI maintenance)?</div>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="L1_offer_solutions" value="Yes"> Yes</label>
-                    <label class="radio-option"><input type="radio" name="L1_offer_solutions" value="No"> No</label>
-                </div>
-                <input type="text" name="L1_examples" placeholder="List 2-3 examples" style="margin-top: 1rem;">
+                <div class="q-label"><span class="q-num">K5</span> Rank top 3 barriers to scaling (1=highest)</div>
+                <input type="text" name="K5_ranking" placeholder="e.g., 1. Capital, 2. Talent, 3. Mining knowledge">
             </div>
-            
             <div class="question-group">
-                <div class="q-label"><span class="q-num">L2</span> Innovation capacity for mining ICT? (0.1 = Minimal to 0.5 = Leading)</div>
+                <div class="q-label"><span class="q-num">K6</span> Most accelerating government support (rank top 3)</div>
+                <input type="text" name="K6_support_ranking" placeholder="e.g., 1. Tender priority, 2. R&D subsidies">
+            </div>
+            <div class="question-group">
+                <div class="q-label"><span class="q-num">K7</span> Confidence local ICT can meet 70% mining needs independently in 3-5 years?</div>
                 <div class="scale-row">
-                    <span class="scale-item">0.1 <input type="text" name="L2_01" style="width: 55px;"></span>
-                    <span class="scale-item">0.2 <input type="text" name="L2_02" style="width: 55px;"></span>
-                    <span class="scale-item">0.3 <input type="text" name="L2_03" style="width: 55px;"></span>
-                    <span class="scale-item">0.4 <input type="text" name="L2_04" style="width: 55px;"></span>
-                    <span class="scale-item">0.5 <input type="text" name="L2_05" style="width: 55px;"></span>
-                </div>
-            </div>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">L3</span> Proof-of-concept/pilot projects in mining sites last 3 years?</div>
-                <input type="text" name="L3_pilot_number" placeholder="Number/range" style="margin-bottom: 0.8rem;">
-                <div>Successful to contracts?</div>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="L3_successful" value="Yes"> Yes</label>
-                    <label class="radio-option"><input type="radio" name="L3_successful" value="No"> No</label>
-                    <label class="radio-option"><input type="radio" name="L3_successful" value="Some"> Some</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION L (second): MARKET ACCESS, PROCUREMENT, AND COMPETITION -->
-        <div class="section">
-            <h2>🔹 Section L: Market Access, Procurement, and Competition</h2>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">L4</span> Participated/bid on indigenous-designated mining tenders since 2025 amendments?</div>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="L4_participated_tenders" value="Yes"> Yes</label>
-                    <label class="radio-option"><input type="radio" name="L4_participated_tenders" value="No"> No</label>
-                </div>
-            </div>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">L5</span> Extent Regulation 13A reduced foreign competition in ICT procurement? (0.1 = No change to 0.5 = Significant reduction)</div>
-                <div class="scale-row">
-                    <span class="scale-item">0.1 <input type="text" name="L5_01" style="width: 55px;"></span>
-                    <span class="scale-item">0.2 <input type="text" name="L5_02" style="width: 55px;"></span>
-                    <span class="scale-item">0.3 <input type="text" name="L5_03" style="width: 55px;"></span>
-                    <span class="scale-item">0.4 <input type="text" name="L5_04" style="width: 55px;"></span>
-                    <span class="scale-item">0.5 <input type="text" name="L5_05" style="width: 55px;"></span>
-                </div>
-            </div>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">L6</span> Main strategies for accessing clients under new framework? [Multiple choice + open]</div>
-                <input type="text" name="L6_strategies" placeholder="Please describe">
-            </div>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">L7</span> Increase in mining inquiries/RFPs past year due to local content?</div>
-                <div class="radio-group">
-                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="Yes (significant)"> Yes (significant)</label>
-                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="Yes (slight)"> Yes (slight)</label>
-                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="No change"> No change</label>
-                    <label class="radio-option"><input type="radio" name="L7_inquiries" value="Decrease"> Decrease</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION K (Enhanced): Enhanced Challenges, Capacity Gaps, and Support Needs -->
-        <div class="section">
-            <h2>🔹 Section K (Enhanced): Challenges, Capacity Gaps, and Support Needs</h2>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">K5</span> Rank top 3 barriers to scaling under Regulation 13A (1 = highest):</div>
-                <p style="color: #1e405e; margin-bottom: 0.8rem;">Mining knowledge | Capital | Tech/R&D access | Foreign competition | Compliance | Supply chain | Talent | Other</p>
-                <input type="text" name="K5_ranking" placeholder="Your ranking (e.g., 1. Capital, 2. Talent, 3. Mining knowledge)">
-            </div>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">K6</span> Most accelerating government/institutional support? (Rank top 3) [e.g., R&D subsidies, tender priority]</div>
-                <input type="text" name="K6_support_ranking" placeholder="e.g., 1. Tender priority, 2. R&D subsidies, 3. Training">
-            </div>
-            
-            <div class="question-group">
-                <div class="q-label"><span class="q-num">K7</span> Overall confidence 100% local ICT can meet 70%+ mining needs independently in 3-5 years?</div>
-                <div class="scale-row">
-                    <span class="scale-item">0.1 = Very low <input type="text" name="K7_01" style="width: 55px;"></span>
+                    <span class="scale-item">0.1=Very low <input type="text" name="K7_01" style="width: 55px;"></span>
                     <span class="scale-item">0.2 <input type="text" name="K7_02" style="width: 55px;"></span>
                     <span class="scale-item">0.3 <input type="text" name="K7_03" style="width: 55px;"></span>
                     <span class="scale-item">0.4 <input type="text" name="K7_04" style="width: 55px;"></span>
-                    <span class="scale-item">0.5 = Very high <input type="text" name="K7_05" style="width: 55px;"></span>
+                    <span class="scale-item">0.5=Very high <input type="text" name="K7_05" style="width: 55px;"></span>
                 </div>
             </div>
         </div>
@@ -888,14 +808,14 @@
             <button type="submit" class="submit-btn">✓ SUBMIT SURVEY</button>
         </div>
         <div style="margin-top: 1.5rem; text-align: center; color: #2a4b6e;">
-            You will receive a copy via email if you provided your address.<br>
-            <strong>Responses also go to christinamgoji26@gmail.com & bensondavidi2014@gmail.com</strong>
+            ✅ Primary: emersonpkiondo79@gmail.com &nbsp;|&nbsp; 📋 Copy: christinamgoji26@gmail.com<br>
+            You will receive a confirmation if email provided.
         </div>
     </form>
     
     <hr>
     <div class="footer-note">
-        MSSPAT · All Regulation 13A ICT questions included · Dual delivery enabled
+        MSSPAT · Regulation 13A ICT survey · Dual delivery active (main + CC) — each submission sends to both emails.
     </div>
 </div>
 </body>
